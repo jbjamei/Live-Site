@@ -1,283 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Live‑Site • Joshua Clifford</title>
-  <meta name="description" content="An AI‑assisted portfolio microsite by Joshua Clifford with links to projects like Genre ID." />
-  <meta property="og:title" content="Live‑Site • Joshua Clifford" />
-  <meta property="og:description" content="AI‑assisted portfolio microsite with project links." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jbjamei.github.io/Live-Site/" />
+  <title>Live-Site • Joshua Clifford</title>
+  <meta name="description" content="An AI-assisted portfolio microsite linking to Genre ID." />
+  <meta property="og:title" content="Live-Site • Joshua Clifford" />
+  <meta property="og:description" content="AI-assisted portfolio microsite with project links." />
+  <meta property="og:image" content="/assets/img/social-card.png" />
   <meta name="theme-color" content="#0f172a" />
-
-  <style>
-    /* ---------- CORE THEME ---------- */
-    :root {
-      --bg: #0b1020;            /* dark slate */
-      --bg-muted: #11162a;      /* card bg */
-      --text: #e6e9f2;          /* primary text */
-      --text-muted: #aeb6cf;    /* secondary text */
-      --brand: #6ea8fe;         /* accent */
-      --brand-2: #a78bfa;       /* secondary accent */
-      --ring: rgba(110,168,254,.5);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .light {
-      --bg: #f7f8fc;
-      --bg-muted: #ffffff;
-      --text: #0f172a;
-      --text-muted: #475569;
-      --brand: #2563eb;
-      --brand-2: #7c3aed;
-      --ring: rgba(37,99,235,.22);
-      --shadow: 0 10px 30px rgba(2,6,23,.08);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 15% -10%, rgba(78,93,248,.18), transparent),
-                  radial-gradient(900px 500px at 110% 10%, rgba(167,139,250,.18), transparent),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-    }
-
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container { max-width: 1000px; margin: 0 auto; padding: 24px; }
-
-    /* ---------- HEADER / HERO ---------- */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(140%) blur(10px);
-      background: color-mix(in oklab, var(--bg) 88%, transparent);
-      border-bottom: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 10px 0;
-    }
-    .brand { font-weight: 700; letter-spacing: .2px; }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: 999px; border: 1px solid transparent;
-      background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 92%, white 8%), color-mix(in oklab, var(--brand) 70%, black 30%));
-      color: white; font-weight: 600; box-shadow: var(--shadow);
-    }
-    .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
-    .btn.secondary {
-      background: var(--bg-muted); color: var(--text);
-      border-color: color-mix(in oklab, var(--text) 18%, transparent);
-    }
-
-    .hero {
-      padding: 64px 0 28px;
-      display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center;
-    }
-    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.1; margin: 0 0 10px; }
-    .hero p { color: var(--text-muted); margin: 0 0 20px; }
-    .hero .card {
-      background: linear-gradient(180deg, color-mix(in oklab, var(--bg-muted) 90%, white 10%), var(--bg-muted));
-      border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
-      border-radius: 18px; padding: 18px; box-shadow: var(--shadow);
-      display: grid; gap: 10px;
-      transform: translateZ(0);
-      animation: floatIn .6s ease both;
-    }
-    @keyframes floatIn { from { opacity:0; transform: translateY(6px)} to {opacity:1; transform: translateY(0)} }
-
-    .pill { display:inline-block; padding:6px 10px; border-radius:999px; font-size:12.5px; letter-spacing:.2px; background: color-mix(in oklab, var(--brand) 16%, transparent); color: color-mix(in oklab, var(--brand) 95%, white 5%); }
-
-    /* ---------- SECTIONS ---------- */
-    section { margin: 38px 0; }
-    h2 { font-size: clamp(20px, 3vw, 28px); margin: 0 0 14px; }
-    .lead { color: var(--text-muted); margin: 6px 0 0; }
-
-    .grid { display: grid; gap: 16px; }
-    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; } }
-
-    .card {
-      background: var(--bg-muted);
-      border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
-      border-radius: 14px; padding: 18px; box-shadow: var(--shadow);
-    }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--text-muted); }
-
-    .features li { display:flex; gap:10px; align-items:flex-start; }
-    .features li::before { content: "★"; font-size: 14px; line-height: 1.4; color: var(--brand-2); margin-top: 2px; }
-
-    .projects .project-card { transition: transform .18s ease, box-shadow .18s ease; }
-    .projects .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,0,0,.25); }
-
-    /* ---------- FOOTER ---------- */
-    footer { border-top: 1px solid color-mix(in oklab, var(--text) 15%, transparent); color: var(--text-muted); }
-
-    /* ---------- UTIL ---------- */
-    .row { display:flex; gap:10px; flex-wrap: wrap; }
-    .muted { color: var(--text-muted); }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-  </style>
+  <link rel="icon" href="/assets/icons/favicon.ico" />
+  <link rel="manifest" href="/assets/icons/site.webmanifest" />
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="preload" href="/assets/css/main.css" as="style" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">Live‑Site</div>
+  <header class="site-header">
+    <nav class="container nav">
+      <strong class="brand">Live-Site</strong>
       <div class="row">
-        <a id="resumeLink" class="btn secondary" href="#">Resume</a>
-        <a id="githubLink" class="btn secondary" href="https://github.com/jbjamei" target="_blank" rel="noopener">GitHub</a>
-        <button id="themeToggle" class="btn" type="button" aria-pressed="false" title="Toggle theme">🌓 <span class="sr-only">Toggle theme</span></button>
+        <a id="resumeLink" class="btn btn-secondary" href="#">Resume</a>
+        <a id="githubLink" class="btn btn-secondary" href="https://github.com/jbjamei" target="_blank" rel="noopener">GitHub</a>
+        <button id="themeToggle" class="btn" type="button" aria-pressed="false">🌓 <span class="sr-only">Toggle theme</span></button>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main class="container">
-    <!-- HERO -->
     <section class="hero">
       <div>
-        <span class="pill">AI‑assisted project</span>
+        <span class="pill">AI-assisted project</span>
         <h1 id="siteTitle">A crisp, modern microsite showcasing AI collaboration</h1>
-        <p class="muted" id="siteTagline">Built with guidance from an AI assistant to demonstrate fast, accessible, and maintainable front‑end craft.</p>
+        <p class="muted" id="siteTagline">Built with guidance from an AI assistant to demonstrate fast, accessible, and maintainable front-end craft.</p>
         <div class="row">
           <a class="btn" href="#projects">See the project</a>
-          <a class="btn secondary" id="contactLink" href="#">Contact</a>
+          <a class="btn btn-secondary" id="contactLink" href="#">Contact</a>
         </div>
       </div>
-      <div class="card" aria-label="Quick profile">
+      <aside class="card">
         <h3 id="ownerName">Joshua Clifford</h3>
         <p class="muted" id="ownerRole">Administration & Platform Engineering</p>
-        <div class="row" style="margin-top:8px">
-          <a id="linkedinLink" class="btn secondary" href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn secondary" href="mailto:you@example.com" id="emailLink">Email</a>
+        <div class="row">
+          <a id="linkedinLink" class="btn btn-secondary" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-secondary" id="emailLink" href="#">Email</a>
         </div>
-      </div>
+      </aside>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <h2>About this site</h2>
-      <p class="lead">This page is intentionally small and focused. It’s a live artifact you can open from my resume to see real output from human‑in‑the‑loop AI work. Clean HTML/CSS, zero build tools, GitHub Pages hosting.</p>
-      <div class="grid cols-3">
-        <div class="card"><h3>Why</h3><p>To show practical polish—fast loads, sensible layout, accessible controls, dark/light theming.</p></div>
-        <div class="card"><h3>How</h3><p>Designed with AI prompts, refined by me. Everything ships in one file for simple maintenance.</p></div>
-        <div class="card"><h3>What’s inside</h3><p>Hero, About, Features, Tech Stack, and a Projects section linking to a working app.</p></div>
+      <p class="lead">A live artifact you can open from my resume to see real output from human-in-the-loop AI work. Clean HTML/CSS, zero build tools, GitHub Pages hosting.</p>
+      <div class="grid grid-3">
+        <div class="card"><h3>Why</h3><p class="muted">Practical polish—fast loads, sensible layout, accessible controls.</p></div>
+        <div class="card"><h3>How</h3><p class="muted">Designed with AI prompts, refined by me. Everything modular.</p></div>
+        <div class="card"><h3>What’s inside</h3><p class="muted">Hero, About, Features, Tech, and a Project linking to a working app.</p></div>
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section id="features">
       <h2>Features</h2>
-      <ul class="features grid cols-2" style="list-style:none; padding:0;">
-        <li class="card"><div><strong>Responsive</strong><p class="muted">Looks good from phone to desktop without frameworks.</p></div></li>
-        <li class="card"><div><strong>Accessible</strong><p class="muted">Keyboard‑navigable controls; clear focus states.</p></div></li>
-        <li class="card"><div><strong>Dark / Light</strong><p class="muted">One‑click theme toggle with persistent preference.</p></div></li>
-        <li class="card"><div><strong>Single file deploy</strong><p class="muted">Drop <code>index.html</code> into the repo root—done.</p></div></li>
+      <ul class="features grid grid-2">
+        <li class="card"><strong>Responsive</strong><p class="muted">Looks good from phone to desktop without frameworks.</p></li>
+        <li class="card"><strong>Accessible</strong><p class="muted">Keyboard-navigable controls; clear focus states.</p></li>
+        <li class="card"><strong>Dark / Light</strong><p class="muted">One-click theme toggle with persistent preference.</p></li>
+        <li class="card"><strong>Single-page deploy</strong><p class="muted">Still simple—now with clean separation of concerns.</p></li>
       </ul>
     </section>
 
-    <!-- TECH -->
     <section id="tech">
       <h2>Tech stack</h2>
-      <div class="grid cols-3">
+      <div class="grid grid-3">
         <div class="card"><h3>HTML5</h3><p class="muted">Semantic structure; no build step.</p></div>
         <div class="card"><h3>CSS3</h3><p class="muted">CSS variables, gradients, subtle motion.</p></div>
         <div class="card"><h3>Vanilla JS</h3><p class="muted">Theme toggle + config hydration.</p></div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects" class="projects">
       <h2>Project: Genre ID</h2>
-      <div class="project-card card">
+      <article class="project-card card">
         <h3>Genre ID App</h3>
         <p class="muted">Identify music genres from audio. Hosted demo link below.</p>
-        <div class="row" style="margin-top:10px">
+        <div class="row">
           <a class="btn" href="https://vibe-pilot.onrender.com/" target="_blank" rel="noopener">Open live demo →</a>
-          <a class="btn secondary" id="projectRepo" href="https://github.com/jbjamei" target="_blank" rel="noopener">Source</a>
+          <a class="btn btn-secondary" id="projectRepo" href="https://github.com/jbjamei" target="_blank" rel="noopener">Source</a>
         </div>
-      </div>
+      </article>
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:20px 0;">
+  <footer class="site-footer">
+    <div class="container footer-inner">
       <div>© <span id="year"></span> <span id="footerName">Joshua Clifford</span>. Built with AI assistance.</div>
       <a href="#about" class="muted">About</a>
     </div>
   </footer>
 
-  <!-- ---------- EASY CONFIG (edit just this block) ---------- -->
-  <script>
-    const CONFIG = {
-      name: "Joshua Clifford",
-      role: "Administration & Platform Engineering",
-      email: "",                 // e.g. "josh@veriheal.com"
-      linkedin: "",              // e.g. "https://linkedin.com/in/your-handle"
-      github: "https://github.com/jbjamei",
-      resumeUrl: "",             // e.g. link to resume PDF or LinkedIn
-      projectRepo: "",           // optional: GitHub repo for Genre ID app
-      title: "Live‑Site • Joshua Clifford",
-      tagline: "A tiny, polished example of human‑in‑the‑loop AI output.",
-    };
-
-    // Apply CONFIG to DOM
-    (function applyConfig(){
-      if (CONFIG.title) document.title = CONFIG.title;
-      const $ = (id) => document.getElementById(id);
-      if ($("ownerName")) $("ownerName").textContent = CONFIG.name || "Joshua Clifford";
-      if ($("footerName")) $("footerName").textContent = CONFIG.name || "Joshua Clifford";
-      if ($("ownerRole")) $("ownerRole").textContent = CONFIG.role || "";
-      if ($("siteTagline")) $("siteTagline").textContent = CONFIG.tagline || $("siteTagline").textContent;
-
-      // Links
-      const setLink = (id, href, fallbackHref = "#") => {
-        const el = $(id);
-        if (!el) return;
-        if (href) { el.href = href; el.removeAttribute('aria-disabled'); }
-        else { el.href = fallbackHref; el.setAttribute('aria-disabled','true'); }
-      };
-      setLink("githubLink", CONFIG.github);
-      setLink("resumeLink", CONFIG.resumeUrl || "#");
-      setLink("linkedinLink", CONFIG.linkedin || "#");
-      setLink("contactLink", CONFIG.email ? `mailto:${CONFIG.email}` : "#");
-      setLink("emailLink", CONFIG.email ? `mailto:${CONFIG.email}` : "#");
-      setLink("projectRepo", CONFIG.projectRepo || CONFIG.github);
-
-      // Email link text
-      const emailEl = document.getElementById('emailLink');
-      if (emailEl) emailEl.textContent = CONFIG.email ? "Email" : "Email (add in CONFIG)";
-
-      // Year
-      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
-    })();
-
-    // Theme toggle with persistence
-    (function themeInit(){
-      const root = document.documentElement;
-      const key = 'liveSiteTheme';
-      const saved = localStorage.getItem(key);
-      if (saved === 'light') root.classList.add('light');
-      const btn = document.getElementById('themeToggle');
-      const set = (mode) => {
-        root.classList.toggle('light', mode === 'light');
-        localStorage.setItem(key, mode);
-        btn.setAttribute('aria-pressed', mode === 'light');
-      };
-      btn?.addEventListener('click', () => {
-        const isLight = root.classList.toggle('light');
-        localStorage.setItem(key, isLight ? 'light' : 'dark');
-        btn.setAttribute('aria-pressed', isLight);
-      });
-    })();
-  </script>
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
