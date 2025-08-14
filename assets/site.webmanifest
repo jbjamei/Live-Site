@@ -1,11 +1,14 @@
-{
-  "name": "Live-Site",
-  "short_name": "Live-Site",
+﻿{
   "icons": [
-    { "src": "/assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/assets/icons/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
-  ],
-  "theme_color": "#0f172a",
-  "background_color": "#0b1020",
-  "display": "standalone"
+    {
+      "src": "/Live-Site/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/Live-Site/assets/icons/favicon.svg",
+      "sizes": "48x48",
+      "type": "image/svg+xml"
+    }
+  ]
 }
