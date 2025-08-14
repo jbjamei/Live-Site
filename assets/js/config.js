@@ -1,5 +1,5 @@
 window.LIVE_SITE_CONFIG = {
-  name: "Joshua Clifford",
+  name: "Joshua Jamei",
   role: "Administration & Platform Engineering",
   email: "", // e.g., "josh@veriheal.com"
   linkedin: "", // e.g., "https://www.linkedin.com/in/handle"
