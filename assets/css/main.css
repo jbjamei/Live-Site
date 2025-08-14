@@ -109,3 +109,10 @@ h2 { margin-bottom: 18px; }
   .card { padding: 20px; }
   .hero { padding: 64px 0 28px; gap: 24px; }
 }
+/* badges */
+.badge {
+  display:inline-block; padding:4px 10px; border-radius:999px;
+  background: color-mix(in oklab, var(--brand) 16%, transparent);
+  color: color-mix(in oklab, var(--brand) 95%, white 5%);
+  margin-right:6px; margin-bottom:6px; font-size:.9rem;
+}
