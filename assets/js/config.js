@@ -6,6 +6,6 @@ window.LIVE_SITE_CONFIG = {
   github: "https://github.com/jbjamei",
   resumeUrl: "Live-Site/assets/JoshuaJamei_CSE.pdf", // e.g., link to resume PDF or LinkedIn
   projectRepo: "", // optional: Genre ID repo
-  title: "Live-Site • Joshua Clifford",
+  title: "Joshua Jamei",
   tagline: "A tiny, polished example of human-in-the-loop AI output.",
 };
