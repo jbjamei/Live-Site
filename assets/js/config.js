@@ -1,11 +1,12 @@
 window.LIVE_SITE_CONFIG = {
   name: "Joshua Jamei",
-  role: "Administration & Platform Engineering",
-  email: "jbclifford94@gmail.com", // e.g., "josh@veriheal.com"
-  linkedin: "https://www.linkedin.com/in/jcliff94", // e.g., "https://www.linkedin.com/in/handle"
+  role: "Systems Administrator | Cloud & Infrastructure",
+  email: "jbclifford94@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jcliff94",
   github: "https://github.com/jbjamei",
-  resumeUrl: "Live-Site/assets/JoshuaJamei_CSE.pdf", // e.g., link to resume PDF or LinkedIn
-  projectRepo: "", // optional: Genre ID repo
+  // Use a path relative to the site root so it works on the custom domain
+  resumeUrl: "assets/JoshuaJamei_CSE.pdf",
+  projectRepo: "",
   title: "Joshua Jamei",
-  tagline: "A tiny, polished example of human-in-the-loop AI output.",
+  tagline: "Systems Administrator focused on reliable, secure, and efficient operations.",
 };
