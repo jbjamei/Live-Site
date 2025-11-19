@@ -5,7 +5,7 @@ window.LIVE_SITE_CONFIG = {
   linkedin: "https://www.linkedin.com/in/jcliff94",
   github: "https://github.com/jbjamei",
   // Use a path relative to the site root so it works on the custom domain
-  resumeUrl: "assets/JoshuaJamei_CSE.pdf",
+  resumeUrl: "assets/JoshuaJamei_Resume.pdf",
   projectRepo: "",
   title: "Joshua Jamei",
   tagline: "Systems Administrator focused on reliable, secure, and efficient operations.",
